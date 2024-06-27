@@ -1,5 +1,5 @@
-This is a CRUD js application.
-
+This is a CRUD js application FOR NKUNDABAGENZI Jeremie.
+I
 - Frontend with vite react. use "npm run dev"
 - Backend with node js. use "npm run dev"
 - You can also check the package.json
