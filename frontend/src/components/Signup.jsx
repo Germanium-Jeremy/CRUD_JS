@@ -1,4 +1,3 @@
-
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -9,16 +8,19 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
-
+ 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('/api/users/signup', { email, password });
-      setUser(response.data.user);
-      navigate('/tasks');
-    } catch (error) {
-      console.error('There was an error signing up!', error);
-    }
+     e.preventDefault();
+     axios.post('http://localhost:5000/signup', { email, password })
+     .then(() => {
+          alert("Sign Up Successfully")
+          setUser(response.data.user)
+          navigate('/tasks')
+     })
+      .catch(error => {
+          alert("Failed To Sign Up");
+          console.error('There was an error adding the task!', error.message)
+      });
   };
 
   return (
